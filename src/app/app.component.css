@@ -1,0 +1,103 @@
+a {
+  display: block;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  background-color: #383B42;
+}
+
+h1 {
+  margin: 0;
+  color: #F6F6EF;
+  background-color: #34363A;
+  text-align: center;
+  font-weight: normal;
+  line-height: 60px;
+  font-size: 20px;
+  border-bottom: 1px solid rgba(101, 116, 134, 0.57);
+  cursor: pointer;
+}
+
+h1:after {
+  content: '';
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  top: 12px;
+  right: -18px;
+  background-color: #34363A;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  color: #b3b3b3;
+  border-top: 1px solid #2E3036;
+  border-bottom: 1px solid #42454D;
+  cursor: pointer;
+}
+
+li p {
+  margin: 0;
+  padding-left: 48px;
+  line-height: 55px;
+  font-size: 18px;
+}
+
+li p:hover {
+  background-color: #454952;
+  color: #fff;
+}
+
+.unfold p, .unfold p:hover {
+  background-color: #6f96c2;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,.5);
+}
+
+.tab-body {
+  background-color: #5b7da3;
+}
+
+.tab-body a {
+  padding-left: 30px;
+  color: #fff;
+  line-height: 45px; 
+}
+
+.tab-body a:hover {
+  padding-left: 50px;
+  background-color: #4e6b8a;
+  transition: all .2s;
+}
+
+header {
+  height: 60px;
+  margin-left: 200px;
+  background-color: #fff;
+  border-bottom: 1px solid #C0C1C0;
+}
+
+header a {
+  margin: 0;
+  padding-left: 40px;
+  color: #919191;
+  font-size: 20px;
+  line-height: 60px;
+}
+
+.route {
+  margin-left: 200px;
+}
