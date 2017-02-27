@@ -2,7 +2,7 @@
 
 Clone this repo into new project folder.
 ```
-git clone https://github.com/angular/quickstart  my-proj
+git clone https://github.com/Kylooe/ng2-wms.git  my-proj
 ```
 
 Install dependencies
