@@ -9,7 +9,7 @@ import { Goods }             from '../type';
   selector: 'search',
   template: `
   <span class="wrapper">
-    <input #searchBox (keyup)="search(searchBox.value)" placeholder="快速搜索"/>
+    <input type="text" class="form-control" #searchBox (keyup)="search(searchBox.value)" placeholder="快速搜索"/>
     <ul>
       <li *ngFor="let item of goods | async">
         {{item.name}}<span>{{item.quantity}}</span>
@@ -22,24 +22,9 @@ import { Goods }             from '../type';
       position: relative;
     }
 
-    input {
-      width: 300px;
-      height: 25px;
-      line-height: 25px;
-      box-sizing: border-box;
-      padding-left: 10px;
-      border: none;
-      border-radius: 12.5px;
-    }
-
-    input:focus {
-      border: 1px solid #5b7da3;
-    }
-
     ul {
       position: absolute;
-      width: 280px;
-      left: 10px;
+      width: 400px;
       margin: 0;
       padding: 0;
       list-style: none;

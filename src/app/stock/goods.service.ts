@@ -28,6 +28,12 @@ export class GoodsService {
                .catch(this.handleError);
   }
 
+  update(item:Goods):Promise<Goods> {
+    const url = `${this.goodsUrl}/${item.id}`;
+    return this.http.put(url, JSON.stringify(item), {headers:this.headers})
+               .toPromise().then(() => item).catch(this.handleError);
+  }
+
   private handleError(error:any):Promise<any> {
     console.error('出现了未知错误', error);
     return Promise.reject(error.message || error);

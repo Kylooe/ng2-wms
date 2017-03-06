@@ -8,13 +8,13 @@ import 'rxjs/add/operator/delay';
 @Injectable()
 export class AuthService {
   isLoggedIn:boolean = false;
-  redirectUrl:string;  // store the URL so we can redirect after logging in
+  redirectUrl:string;
 
-  login():Observable<boolean> {
-    return Observable.of(true).delay(1000).do(val => this.isLoggedIn = true);  // 模拟登录
+  login(): Observable<boolean> {
+    return Observable.of(true).delay(1000).do(val => this.isLoggedIn = true);
   }
 
-  logout():void {
+  logout(): void {
     this.isLoggedIn = false;
   }
 }

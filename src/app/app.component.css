@@ -1,29 +1,29 @@
 a {
   display: block;
+  text-decoration: none;
 }
 
-nav {
+.sidebar {
   position: fixed;
   top: 0;
   left: 0;
   width: 200px;
   height: 100%;
   background-color: #383B42;
+  z-index: 100;
 }
 
-h1 {
+.logo {
   margin: 0;
   color: #F6F6EF;
   background-color: #34363A;
   text-align: center;
-  font-weight: normal;
   line-height: 60px;
-  font-size: 20px;
   border-bottom: 1px solid rgba(101, 116, 134, 0.57);
   cursor: pointer;
 }
 
-h1:after {
+.logo:after {
   content: '';
   width: 36px;
   height: 36px;
@@ -40,64 +40,50 @@ ul {
   margin: 0;
   padding: 0;
   list-style: none;
+  color: #b3b3b3;
 }
 
 li {
-  color: #b3b3b3;
+  height: 100px;
   border-top: 1px solid #2E3036;
   border-bottom: 1px solid #42454D;
   cursor: pointer;
 }
 
-li p {
-  margin: 0;
-  padding-left: 48px;
-  line-height: 55px;
-  font-size: 18px;
-}
-
-li p:hover {
+li:hover {
   background-color: #454952;
   color: #fff;
 }
 
-.unfold p, .unfold p:hover {
+.selected, .selected:hover {
   background-color: #6f96c2;
   color: #fff;
   box-shadow: 0 0 10px rgba(0,0,0,.5);
 }
 
-.tab-body {
-  background-color: #5b7da3;
-}
-
-.tab-body a {
-  padding-left: 30px;
-  color: #fff;
-  line-height: 45px; 
-}
-
-.tab-body a:hover {
-  padding-left: 50px;
-  background-color: #4e6b8a;
-  transition: all .2s;
-}
-
-header {
+/* top bar */
+.topbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
   height: 60px;
-  margin-left: 200px;
   background-color: #fff;
   border-bottom: 1px solid #C0C1C0;
+  z-index: 10;
 }
 
-header a {
-  margin: 0;
-  padding-left: 40px;
-  color: #919191;
-  font-size: 20px;
-  line-height: 60px;
+.topbar button {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
 }
 
-.route {
+.wrapper {
+  height: 100%;
   margin-left: 200px;
+  margin-top: 60px;
+  background-color: #f0f0f0;
+  padding: 25px;
 }
