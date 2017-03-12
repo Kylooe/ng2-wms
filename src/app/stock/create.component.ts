@@ -1,5 +1,4 @@
 import { Component }       from '@angular/core';
-import { NgbActiveModal }  from '@ng-bootstrap/ng-bootstrap';
 
 import { GoodsService }    from './goods.service';
 import { Goods }           from '../type';
@@ -32,9 +31,9 @@ import { Goods }           from '../type';
 
 export class CreateItemComponent {
   item:Goods;
-  constructor(public activeModal:NgbActiveModal, private goodsService:GoodsService) {}
-
+  constructor( private goodsService:GoodsService) {}
+/*
   create():void {
     this.goodsService.update(this.item).then(() => this.activeModal.close('Close click'));
-  }
+  }*/
 }

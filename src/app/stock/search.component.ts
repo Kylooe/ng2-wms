@@ -8,45 +8,58 @@ import { Goods }             from '../type';
 @Component({
   selector: 'search',
   template: `
-  <span class="wrapper">
-    <input type="text" class="form-control" #searchBox (keyup)="search(searchBox.value)" placeholder="快速搜索"/>
+  <div class="wrapper">
+    <input type="text" #searchBox (keyup)="search(searchBox.value)" placeholder="快速搜索"/>
     <ul>
-      <li *ngFor="let item of goods | async">
-        {{item.name}}<span>{{item.quantity}}</span>
-      </li>
+      <li *ngFor="let item of goods | async">{{item.name}}</li>
     </ul>
-  </span>
+  </div>
   `,
   styles: [`
     .wrapper {
+      display: inline-block;
       position: relative;
     }
 
+    input {
+      width: 400px;
+      padding: 5px 10px;
+      font-size: 16px;
+      border: 1px solid #e3e3e3;
+      box-sizing: border-box;
+    }
+
+    input:focus {
+      border: 1px solid #18a689;
+    }
+
     ul {
+      visibility: hidden;
       position: absolute;
       width: 400px;
       margin: 0;
       padding: 0;
       list-style: none;
-      background-color: #fff;
+      background-color: #18a689;
+    }
+
+    input:focus + ul, ul:hover {
+      visibility: visible;
     }
 
     li {
       padding: 2px 5px;
-      border-width: 0 1px 1px;
-      border-color: #5b7da3;
+      color: #fff;
+      cursor: pointer;
+      border-color: #18a689;
       border-style: solid;
-      cursor: normal;
+      border-width: 0 1px 1px;
     }
 
     li:hover {
-      background-color: #5b7da3;
-      color: #fff;
+      background-color: #fff;
+      color: #18a689;
       user-select: none;
-    }
-
-    li span {
-      float: right;
     }
   `],
   providers: [ SearchService ]

@@ -1,21 +1,23 @@
 import { Component, OnInit }   from '@angular/core';
-import { NgbModal }            from '@ng-bootstrap/ng-bootstrap';
 
 import { GoodsService }        from './goods.service';
 import { Goods }               from '../type';
-import { CreateItemComponent } from './create.component';
 
 @Component({
+  moduleId: module.id,
   selector: 'goods',
   template: `
     <div class="box">
       <p class="box-title">title</p>
-      <div class="box-content">
-        <div class="row">
-          <search class="col-6"></search>
-          <button class="btn btn-sm btn-outline-primary col-1 offset-5" (click)="add()">添加</button>
+      <div class="box-body">
+        <div class="panel">
+          <search></search>
+          <span class="button-group">
+            <button (click)="create()">添加</button>
+            <button>其他按钮</button>
+          </span>
         </div>
-        <table class="table table-hover table-sm">
+        <table>
           <thead>
             <tr>
               <th>名称</th>
@@ -23,52 +25,35 @@ import { CreateItemComponent } from './create.component';
               <th>操作</th>
             </tr>
           </thead>
-          <tr *ngFor="let item of goods">
-            <td>{{item.name}}</td>
-            <td>{{item.quantity}}</td>
-            <td><button (click)="del(item)">删除</button></td>
-          </tr>
+          <tbody>
+            <tr *ngFor="let item of goods">
+              <td>{{item.name}}</td>
+              <td>{{item.quantity}}</td>
+              <td>
+                <button (click)="edit(item.id)">修改</button>
+                <button (click)="del(item)">删除</button>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
   `,
-  styles: [`
-    .box {
-      margin: 25px;
-      padding-bottom: 30px;
-      background-color: #fff;
-      border: 1px solid #ddd;
-    }
-
-    .box-title {
-      margin: 0;
-      padding: 0 15px;
-      line-height: 50px;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .box-content {
-      padding: 0 20px;
-    }
-
-    .row {
-      padding: 20px;
-    }
-
-    .table th {
-      border-top: none;
-    }
-  `]
+  styleUrls: ['../box.css']
 })
 
 export class GoodsComponent implements OnInit {
   goods:Goods[];
 
-  constructor(private goodsService:GoodsService, private modalService: NgbModal) { }
+  constructor(private goodsService:GoodsService) { }
 
   // 组件创建即获取库存列表
   ngOnInit():void {
     this.goodsService.getGoods().then(goods => this.goods = goods);
+  }
+
+  edit(id:number):void {
+
   }
 
   del(item:Goods):void {
@@ -78,7 +63,7 @@ export class GoodsComponent implements OnInit {
         });
   }
 
-  add() {
-    this.modalService.open(CreateItemComponent);
+  create() {
+    
   }
 }

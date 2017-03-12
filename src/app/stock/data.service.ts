@@ -13,6 +13,10 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 8, name: 'hhh香水', quantity: 54 },
       { id: 9, name: 'iii香水', quantity: 24 },
       { id: 10, name: 'jjj坐垫', quantity: 546 }
+      { id: 11, name: 'jjj坐垫', quantity: 546 }
+      { id: 12, name: 'jjj坐垫', quantity: 546 }
+      { id: 13, name: 'jjj坐垫', quantity: 546 }
+      { id: 14, name: 'jjj坐垫', quantity: 546 }
     ];
     return {goods};
   }

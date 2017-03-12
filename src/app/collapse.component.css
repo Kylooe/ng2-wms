@@ -1,0 +1,58 @@
+ul {
+    list-style: none;
+    cursor: pointer;
+}
+
+.main {
+    margin: 0;
+    padding: 0;
+    color: #b3b3b3;
+}
+
+.main li:hover, .unfold, .unfold:hover {
+    background-color: #454952;
+    color: #fff;
+}
+
+.unfold, .unfold:hover{
+    border-left: 5px solid #18a689;
+}
+
+p {
+    margin: 0;
+    padding: 0 20px;
+    line-height: 50px;
+    border-bottom: 1px solid #42454D;
+}
+
+i {
+    padding-right: 10px;
+}
+
+p:after {
+    font-family: "FontAwesome";
+    float: right;
+}
+
+p:after {
+    content: "\f104";
+}
+
+.unfold p:after {
+    content: "\f107";
+}
+
+.sub {
+    overflow: hidden;
+    padding-left: 60px;
+    background-color: #454952;
+    line-height: 40px;
+}
+
+a {
+    color: #b3b3b3;
+}
+
+a:hover {
+    color: #fff;
+}
