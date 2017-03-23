@@ -8,17 +8,18 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/map';
 
-import { GoodsService }       from './goods.service';
+import { GoodsService }        from './goods.service';
 
-import { GoodsComponent }     from './goods.component';
-import { SearchComponent }    from './search.component';
-import { PurchaseComponent }  from './purchase.component';
-import { CreateItemComponent } from './create.component';
+import { GoodsComponent }      from './goods.component';
+import { SearchComponent }     from './search.component';
+import { ModalComponent }      from './modal.component';
+import { DetailComponent }      from './detail.component';
+import { PurchaseComponent }   from './purchase.component';
 
 @NgModule({
   imports:         [ CommonModule, FormsModule ],
-  declarations:    [ GoodsComponent, PurchaseComponent, SearchComponent, CreateItemComponent ],
-  entryComponents: [ CreateItemComponent ],
+  declarations:    [ GoodsComponent, PurchaseComponent, SearchComponent, ModalComponent, DetailComponent ],
+  entryComponents: [ DetailComponent ],
   providers:       [ GoodsService ]
 })
 export class StockModule { }

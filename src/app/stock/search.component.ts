@@ -57,6 +57,7 @@ import { Goods }             from '../type';
     }
 
     li:hover {
+      padding-left: 15px;
       background-color: #fff;
       color: #18a689;
       user-select: none;

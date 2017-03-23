@@ -1,7 +1,10 @@
-import { Component, OnInit }   from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { GoodsService }        from './goods.service';
-import { Goods }               from '../type';
+import { GoodsService }                 from './goods.service';
+import { Goods }                        from '../type';
+
+import { ModalComponent }               from './modal.component';
+import { DetailComponent }              from './detail.component';
 
 @Component({
   moduleId: module.id,
@@ -13,7 +16,7 @@ import { Goods }               from '../type';
         <div class="panel">
           <search></search>
           <span class="button-group">
-            <button (click)="create()">添加</button>
+            <button (click)="add()">添加</button>
             <button>其他按钮</button>
           </span>
         </div>
@@ -26,7 +29,7 @@ import { Goods }               from '../type';
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of goods">
+            <tr *ngFor="let item of goods" (click)="gotoDetail(item.id); $event.stopPropagation()">
               <td>{{item.name}}</td>
               <td>{{item.quantity}}</td>
               <td>
@@ -38,11 +41,13 @@ import { Goods }               from '../type';
         </table>
       </div>
     </div>
+    <modal #modal></modal>
   `,
   styleUrls: ['../box.css']
 })
 
 export class GoodsComponent implements OnInit {
+  @ViewChild(ModalComponent) modal:ModalComponent;
   goods:Goods[];
 
   constructor(private goodsService:GoodsService) { }
@@ -52,18 +57,23 @@ export class GoodsComponent implements OnInit {
     this.goodsService.getGoods().then(goods => this.goods = goods);
   }
 
-  edit(id:number):void {
+  add() {
+    this.modal.open(DetailComponent, { type: 'add' });
+  }
 
+  edit(id:number) {
+    this.modal.open(DetailComponent, { type: 'edit', id });
+  }
+
+  gotoDetail(id:number) {
+    this.modal.open(DetailComponent, { type: 'detail', id });
   }
 
   del(item:Goods):void {
     this.goodsService.delete(item.id)
     .then(() => {
-          this.goods = this.goods.filter(i => i!==item);
-        });
+      this.goods = this.goods.filter(i => i!==item);
+    });
   }
 
-  create() {
-    
-  }
 }

@@ -12,9 +12,7 @@ import { Component } from '@angular/core';
       <button>Sign out</button>
     </div>
     <div class="wrapper">
-      <div class="route">
-        <router-outlet></router-outlet>
-      </div>
+      <router-outlet></router-outlet>
     </div>
   `,
   styleUrls: ['app.component.css']

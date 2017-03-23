@@ -41,7 +41,7 @@
   height: 60px;
   background-color: #fff;
   border-bottom: 1px solid #C0C1C0;
-  z-index: 10;
+  z-index: 99;
 }
 
 .topbar button {
@@ -52,9 +52,11 @@
 }
 
 .wrapper {
+  position: relative;
   height: 100%;
   margin-left: 250px;
   margin-top: 60px;
-  background-color: #f0f0f0;
   padding: 25px;
+  background-color: #f0f0f0;
+  overflow: hidden;
 }

@@ -19,12 +19,18 @@ export class GoodsService {
                .catch(this.handleError);
   }
 
-  // 删除某项货物
-  delete(id:number):Promise<void> {
+  detail(id:number):Promise<Goods> {
     const url = `${this.goodsUrl}/${id}`;
-    return this.http.delete(url, {headers:this.headers})
+    return this.http.get(url)
                .toPromise()
-               .then(() => null)
+               .then(response => response.json().data as Goods)
+               .catch(this.handleError);
+  }
+
+  create(item:Object):Promise<Goods> {
+    return this.http.post(this.goodsUrl, JSON.stringify(item), {headers:this.headers})
+               .toPromise()
+               .then(res => res.json().data)
                .catch(this.handleError);
   }
 
@@ -32,6 +38,15 @@ export class GoodsService {
     const url = `${this.goodsUrl}/${item.id}`;
     return this.http.put(url, JSON.stringify(item), {headers:this.headers})
                .toPromise().then(() => item).catch(this.handleError);
+  }
+
+  // 删除某项货物
+  delete(id:number):Promise<void> {
+    const url = `${this.goodsUrl}/${id}`;
+    return this.http.delete(url, {headers:this.headers})
+               .toPromise()
+               .then(() => null)
+               .catch(this.handleError);
   }
 
   private handleError(error:any):Promise<any> {
