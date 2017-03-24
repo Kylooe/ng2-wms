@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, 
+import { Component, OnInit, Input, Output, EventEmitter,
          ViewContainerRef, ViewChild, ComponentFactoryResolver } from '@angular/core';
 
 @Component({
@@ -64,17 +64,21 @@ import { Component, OnInit, Input,
 export class ModalComponent {
   @ViewChild('content', { read: ViewContainerRef }) content:ViewContainerRef;
   isOpened:boolean = false;
+  @Output() reload = new EventEmitter<boolean>();
 
   constructor(private resolver:ComponentFactoryResolver) {}
 
+  componentRef:any;
   open(component:any, options:any):void {
     this.isOpened = true;
     let factory = this.resolver.resolveComponentFactory(component);
-    let componentRef = this.content.createComponent(factory);
-    (<any>componentRef.instance).options = options;
+    this.componentRef = this.content.createComponent(factory);
+    this.componentRef.instance.options = options;
   }
 
   close() {
     this.isOpened = false;
+    this.content.remove();
+    if(this.componentRef.instance.reload) this.reload.emit(true);
   }
 }

@@ -29,19 +29,19 @@ import { DetailComponent }              from './detail.component';
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of goods" (click)="gotoDetail(item.id); $event.stopPropagation()">
+            <tr *ngFor="let item of goods" (click)="gotoDetail(item.id);">
               <td>{{item.name}}</td>
               <td>{{item.quantity}}</td>
               <td>
-                <button (click)="edit(item.id)">修改</button>
-                <button (click)="del(item)">删除</button>
+                <button (click)="edit(item.id); $event.stopPropagation()">修改</button>
+                <button (click)="del(item); $event.stopPropagation()">删除</button>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
-    <modal #modal></modal>
+    <modal #modal (reload)="reload($event)"></modal>
   `,
   styleUrls: ['../box.css']
 })
@@ -71,9 +71,12 @@ export class GoodsComponent implements OnInit {
 
   del(item:Goods):void {
     this.goodsService.delete(item.id)
-    .then(() => {
-      this.goods = this.goods.filter(i => i!==item);
-    });
+        .then(() => {
+          this.goods = this.goods.filter(i => i!==item);
+        });
   }
 
+  reload(need:boolean) {
+    if(need) this.ngOnInit();
+  }
 }

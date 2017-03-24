@@ -23,7 +23,7 @@ export class GoodsService {
     const url = `${this.goodsUrl}/${id}`;
     return this.http.get(url)
                .toPromise()
-               .then(response => response.json().data as Goods)
+               .then(res => res.json().data as Goods)
                .catch(this.handleError);
   }
 
