@@ -4,7 +4,7 @@ import { Component, OnInit, Input, Output, EventEmitter,
 @Component({
   selector: 'modal',
   host: {
-    '[class.open]': 'isOpened'
+    '[class.show]': 'isOpened'
   },
   template: `
     <div class="modal">
@@ -29,10 +29,6 @@ import { Component, OnInit, Input, Output, EventEmitter,
       height: 100%;
       background-color: rgba(0,0,0,.5);
       z-index: 10;
-    }
-
-    :host(.open) {
-      display: block;
     }
 
     .modal {

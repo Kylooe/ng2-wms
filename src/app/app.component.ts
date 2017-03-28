@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   template: `
     <nav class="sidebar">
       <a class="logo" routerLink="/">{{title}}</a>
-      <collapse></collapse>
+      <sidebar></sidebar>
     </nav>
     <div class="topbar">
       <button>Sign out</button>
@@ -20,5 +20,4 @@ import { Component } from '@angular/core';
 export class AppComponent  {
   title = 'XX汽修连锁';
   
-
 }

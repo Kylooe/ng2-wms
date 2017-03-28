@@ -1,0 +1,32 @@
+<div class="box">
+  <p class="box-title">title</p>
+  <div class="box-body">
+    <div class="panel">
+      <search></search>
+      <span class="button-group">
+        <button (click)="add()">添加</button>
+        <button>其他按钮</button>
+      </span>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>名称</th>
+          <th>数量</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of goods" (click)="gotoDetail(item.id);">
+          <td>{{item.name}}</td>
+          <td>{{item.quantity}}</td>
+          <td>
+            <button (click)="edit(item.id); $event.stopPropagation()">修改</button>
+            <button (click)="del(item); $event.stopPropagation()">删除</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<modal #modal (reload)="reload($event)"></modal>

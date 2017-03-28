@@ -1,40 +1,11 @@
 import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
-import { Goods }                                          from '../type';
-import { GoodsService }                                   from './goods.service';
+import { Goods }                                          from '../../type';
+import { GoodsService }                                   from '../goods.service';
 
 @Component({
+  moduleId: module.id,
   selector: 'detail',
-  template: `
-    <div *ngIf="item">
-      <div [hidden]="editable">
-        <div>
-          <span>名称</span> {{item.name}}
-        </div>
-        <div>
-          <span>数量</span> {{item.quantity}}
-        </div>
-        <button (click)="editable = true">修改</button>
-      </div>
-      <div [hidden]="!editable">
-        <form (ngSubmit)="onSubmit()" #goodsForm="ngForm">
-          <div>
-            <label for="name">名称</label>
-            <input type="text" id="name" [(ngModel)]="item.name" name="name" required>
-            <!--
-            <div [hidden]="name.valid || name.pristine" class="alert">
-              名称不可为空
-            </div>
-            -->
-          </div>
-          <div>
-            <label for="quantity">数量</label>
-            <input type="text" id="quantity" [(ngModel)]="item.quantity" name="quantity">
-          </div>
-          <button type="submit" [disabled]="!goodsForm.form.valid">保存</button>
-        </form>
-      </div>
-    </div>
-  `
+  templateUrl: './detail.component.html',
 })
 
 export class DetailComponent implements OnInit {

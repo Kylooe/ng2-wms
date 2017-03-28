@@ -2,7 +2,7 @@ import { Component, trigger, state, style, transition, animate } from '@angular/
 
 @Component({
   moduleId: module.id,
-  selector: 'collapse',
+  selector: 'sidebar',
   template: `
     <ul class="main">
       <li *ngFor="let tab of tabs" [class.unfold]="cur === tab.id" (click)="unfold(tab.id)">
@@ -15,7 +15,7 @@ import { Component, trigger, state, style, transition, animate } from '@angular/
       </li>
     </ul>
   `,
-  styleUrls: ['collapse.component.css'],
+  styleUrls: ['./sidebar.component.css'],
   animations: [
     trigger('collapse', [
       state('active', style({ display: 'block', height: '*' })),
@@ -30,7 +30,7 @@ import { Component, trigger, state, style, transition, animate } from '@angular/
   ]
 })
 
-export class CollapseComponent {
+export class SidebarComponent {
   tabs = [
     {
       id: 0,

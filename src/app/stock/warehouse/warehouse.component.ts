@@ -33,6 +33,6 @@ import { Component, OnInit } from '@angular/core';
   `]
 })
 
-export class PurchaseComponent {
+export class WarehouseComponent {
   suppliers = ['Really Smart', 'Super Flexible', 'Super Hot', 'Weather Changer'];
 }

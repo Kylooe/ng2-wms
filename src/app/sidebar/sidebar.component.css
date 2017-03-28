@@ -51,6 +51,7 @@ p:after {
 
 a {
     color: #b3b3b3;
+    text-decoration: none;
 }
 
 a:hover {

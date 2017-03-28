@@ -4,13 +4,13 @@ import { FormsModule }          from '@angular/forms';
 import { HttpModule }           from '@angular/http';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './stock/data.service';
+import { InMemoryDataService }  from './mock-data/stock/data.service';
 
 import { AppRoutingModule }     from './routing.module';
 import { StockModule }          from './stock/stock.module';
 
 import { AppComponent }         from './app.component';
-import { CollapseComponent }    from './collapse.component';
+import { SidebarComponent }     from './sidebar/sidebar.component';
 
 @NgModule({
   imports: [
@@ -21,7 +21,7 @@ import { CollapseComponent }    from './collapse.component';
     AppRoutingModule,
     StockModule
   ],
-  declarations: [ AppComponent, CollapseComponent ],
+  declarations: [ AppComponent, SidebarComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
