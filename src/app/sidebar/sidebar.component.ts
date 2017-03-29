@@ -37,7 +37,7 @@ export class SidebarComponent {
       name: '库存管理',
       sub: [
         { name: '库存一览', addr: 'goods' },
-        { name: '入库', addr: 'in' }
+        { name: '入库', addr: 'warehouse' }
       ],
       icon: 'fa-cogs'
     }, {

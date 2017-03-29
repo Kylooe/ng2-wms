@@ -4,7 +4,7 @@ import { FormsModule }          from '@angular/forms';
 import { HttpModule }           from '@angular/http';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './mock-data/stock/data.service';
+import { InMemoryDataService }  from './mock-data/data.service';
 
 import { AppRoutingModule }     from './routing.module';
 import { StockModule }          from './stock/stock.module';

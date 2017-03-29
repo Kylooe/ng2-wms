@@ -7,10 +7,10 @@ import { Component, OnInit, Input, Output, EventEmitter,
     '[class.show]': 'isOpened'
   },
   template: `
-    <div class="modal">
+    <div class="modal-content">
       <div class="modal-header">
-        <span class="modal-title">题头</span>
-        <button type="button" class="close" aria-label="Close" (click)="close()">x</button>
+        <button type="button" class="close" aria-label="Close" (click)="close()"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">题头</h4>
       </div>
       <div class="modal-body">
         <template #content>
@@ -29,30 +29,12 @@ import { Component, OnInit, Input, Output, EventEmitter,
       height: 100%;
       background-color: rgba(0,0,0,.5);
       z-index: 10;
+      overflow: hidden;
     }
 
-    .modal {
+    .modal-content {
       margin: 100px auto;
       width: 600px;
-      background-color: #fff;
-      border-radius: 5px;
-    }
-
-    .modal-header {
-      padding: 0 15px;
-      line-height: 50px;
-      border-bottom: 1px solid #e5e6e7;
-    }
-
-    .close {
-      float: right;
-      font-size: 1.5em;
-      line-height: 50px;
-      font-family: sans-serif;
-      color: #555;
-      background: transparent;
-      border: none;
-      cursor: pointer;
     }
   `]
 })

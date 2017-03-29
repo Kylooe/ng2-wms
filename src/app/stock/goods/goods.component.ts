@@ -9,6 +9,9 @@ import { DetailComponent }              from './detail.component';
 @Component({
   moduleId: module.id,
   selector: 'goods',
+  host: {
+    '[class.modal-open]': 'modal.isOpened'
+  },
   templateUrl: './goods.component.html',
   styleUrls: ['./goods.component.css']
 })
