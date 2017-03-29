@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes:Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/' /*canActivate: [AuthGuard]*/ },
-  { path: 'stock', loadChildren:'./stock/stock.module#StockModule' }
+  { path: 'stock', loadChildren:'app/stock/stock.module#StockModule' }
 ];
 
 @NgModule({

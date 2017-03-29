@@ -7,7 +7,6 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './mock-data/data.service';
 
 import { AppRoutingModule }     from './routing.module';
-import { StockModule }          from './stock/stock.module';
 
 import { AppComponent }         from './app.component';
 import { SidebarComponent }     from './sidebar/sidebar.component';
@@ -18,8 +17,7 @@ import { SidebarComponent }     from './sidebar/sidebar.component';
     FormsModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
-    AppRoutingModule,
-    StockModule
+    AppRoutingModule
   ],
   declarations: [ AppComponent, SidebarComponent ],
   bootstrap:    [ AppComponent ]

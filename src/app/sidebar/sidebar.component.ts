@@ -9,7 +9,7 @@ import { Component, trigger, state, style, transition, animate } from '@angular/
         <p><i class="fa {{tab.icon}}" aria-hidden="true"></i>{{tab.name}}</p>
         <ul class="sub" [@collapse]="cur === tab.id ? 'active' : 'void'">
           <li *ngFor="let item of tab.sub">
-            <a  routerLink="/{{item.addr}}">{{item.name}}</a>
+            <a  routerLink="/{{tab.path}}/{{item.addr}}">{{item.name}}</a>
           </li>
         </ul>
       </li>
@@ -35,6 +35,7 @@ export class SidebarComponent {
     {
       id: 0,
       name: '库存管理',
+      path: 'stock',
       sub: [
         { name: '库存一览', addr: 'goods' },
         { name: '入库', addr: 'warehouse' }
@@ -43,27 +44,23 @@ export class SidebarComponent {
     }, {
       id: 1,
       name: '销售管理',
+      path: 'cashier',
       sub: [
         { name: '开单', addr: '' }
       ],
       icon: 'fa-credit-card'
     }, {
       id: 2,
-      name: '客户管理',
-      sub: [
-        { name: '客户信息', addr: '' }
-      ],
-      icon: 'fa-car'
-    }, {
-      id: 3,
       name: '会员管理',
+      path: 'members',
       sub: [
         { name: '会员一览', addr: '' }
       ],
       icon: 'fa-users'
     }, {
-      id: 4,
+      id: 3,
       name: '财务管理',
+      path: 'xxx',
       sub: [
         { name: '财务统计', addr: '' }
       ],

@@ -2,30 +2,7 @@
 $green: #18a689;
 $light-green: #5fc1ad;
 $grey: #e5e6e7;
-
 */
-
-
-.box {
-  margin: 0 auto;
-  background-color: #fff;
-}
-
-.box-title {
-  margin: 0;
-  padding: 0 15px;
-  line-height: 50px;
-  border-bottom: 1px solid #e5e6e7;
-}
-
-.box-body {
-  padding: 20px;
-}
-
-.panel {
-  margin-bottom: 15px;
-  padding: 0 10px;
-}
 
 .button-group {
   float: right;
@@ -37,8 +14,6 @@ $grey: #e5e6e7;
 }
 
 /* ------------- table ------------- */
-
-
 tbody tr:hover {
   cursor: pointer;
 }

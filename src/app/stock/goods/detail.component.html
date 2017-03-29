@@ -1,29 +1,29 @@
 <div *ngIf="item">
   <div [hidden]="editable">
-    <div>
+    <div class="col-md-6">
       <span>名称</span> {{item.name}}
     </div>
-    <div>
+    <div class="col-md-6">
       <span>数量</span> {{item.quantity}}
     </div>
-    <button (click)="editable = true">修改</button>
+    <button class="btn center-block" (click)="editable = true">修改</button>
   </div>
   <div [hidden]="!editable">
     <form (ngSubmit)="onSubmit()" #goodsForm="ngForm">
-      <div>
-        <label for="name">名称</label>
-        <input type="text" id="name" [(ngModel)]="item.name" name="name" required>
+      <div class="form-group">
+        <label for="goods-detail-name">名称</label>
+        <input type="text" class="form-control" id="goods-detail-name" [(ngModel)]="item.name" name="name" required>
         <!--
         <div [hidden]="name.valid || name.pristine" class="alert">
           名称不可为空
         </div>
         -->
       </div>
-      <div>
-        <label for="quantity">数量</label>
-        <input type="text" id="quantity" [(ngModel)]="item.quantity" name="quantity">
+      <div class="form-group">
+        <label for="goods-detail-quantity">数量</label>
+        <input type="text" class="form-control" id="goods-detail-quantity" [(ngModel)]="item.quantity" name="quantity">
       </div>
-      <button type="submit" [disabled]="!goodsForm.form.valid">保存</button>
+      <button type="submit" class="btn center-block" [disabled]="!goodsForm.form.valid">保存</button>
     </form>
   </div>
 </div>
