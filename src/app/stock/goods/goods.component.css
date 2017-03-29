@@ -3,6 +3,9 @@ $green: #18a689;
 $light-green: #5fc1ad;
 $grey: #e5e6e7;
 */
+.panel-body div {
+  margin: 10px 20px;
+}
 
 .button-group {
   float: right;

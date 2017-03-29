@@ -8,8 +8,14 @@ import { Goods }         from '../type';
 export class SearchService {
   constructor(private http:Http) {}
 
-  search(item:string):Observable<Goods[]> {
-    return this.http.get(`app/goods/?name=${item}`)
-               .map(res => res.json().data as Goods[]);
+  search(type:string, item:string):Observable<Object[]> {
+    let data = this.http.get(`app/${type}/?name=${item}`);
+    switch (type) {
+      case "goods":
+        return data.map(res => res.json().data as Goods[]);
+      default:
+        // code...
+        break;
+    }
   }
 }
