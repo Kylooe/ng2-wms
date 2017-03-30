@@ -18,6 +18,48 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 13, name: 'jjj坐垫', quantity: 546 },
       { id: 14, name: 'jjj坐垫', quantity: 546 }
     ];
-    return {goods};
+    let store = [
+     {
+        id :    '11',
+        storeLocation :  '深圳市',
+        code :       '518000',
+        time :       '2016年7月',
+        storeTel :        '13444322121',
+        licenseNum :       '12345678',
+        headPeople :  {
+          name    :       'www',
+          tel      :      '11111',
+          email    :       '1344fsdf@qq.com',
+          location :       'ddd'
+        }
+     },{
+        id :    '12',
+        storeLocation :  '广州市',
+        code :       '518000',
+        time :       '2016年7月',
+        storeTel :        '13444322121',
+        licenseNum :       '12345678',
+        headPeople :  {
+          name    :       'www',
+          tel      :      '11111',
+          email    :       '1344fsdf@qq.com',
+          location :       'ddd'
+        }
+     },{
+        id :    '13',
+        storeLocation :  '深圳市1',
+        code :       '518000',
+        time :       '2016年7月',
+        storeTel :        '13444322121',
+        licenseNum :       '12345678',
+        headPeople :  {
+          name    :       'www',
+          tel      :      '11111',
+          email    :       '1344fsdf@qq.com',
+          location :       'ddd'
+        }
+     }
+    ];
+    return {goods,store};
   }
 }

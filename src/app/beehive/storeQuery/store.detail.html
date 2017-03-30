@@ -1,0 +1,15 @@
+<h1>门店详情</h1>
+<div id="beehive-store-detail" *ngIf="store">
+	<p>名称: {{store.id}}</p>
+	<p>位置: {{store.storeLocation}}</p>
+	<p>邮政编码: {{store.code}}</p>
+	<p>开店时间: {{store.time}}</p>
+	<p>电话: {{store.storeTel}}</p>
+	<p>营业执照号码: {{store.licenseNum}}</p>
+</div>
+<h3>负责人</h3>
+<div id="beehive-store-people" *ngIf="store">
+	<p><span>姓名: {{store.headPeople.name}}</span><span>电话: {{store.headPeople.tel}}</span></p>
+	<p><span>邮箱: {{store.headPeople.email}}</span><span>地址: {{store.headPeople.location}}</span></p>
+</div>
+<button (click)="goBack()">Back</button>

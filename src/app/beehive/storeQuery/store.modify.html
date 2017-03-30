@@ -1,0 +1,52 @@
+<form class="form-inline" *ngIf="store" #modifyForm="ngForm">
+  <div class="form-group">
+    <label for="store-modify-id">门店名称：</label>
+    <input type="text" class="form-control" id="store-modify-id" [placeholder]="store.id" name="store-id" [disabled]="flag">
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="store-modify-storeLocation">门店位置：</label>
+    <input type="email" [(ngModel)]="store.storeLocation" class="form-control" id="store-modify-storeLocation" [placeholder]="store.storeLocation" name="store-storeLocation">
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="store-modify-code">邮政编码：</label>
+    <input type="email" [(ngModel)]="store.code" class="form-control" id="store-modify-code" [placeholder]="store.code" name="store-code">
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="store-modify-time">开店时间：</label>
+    <input type="email" [(ngModel)]="store.time" class="form-control" id="store-modify-time" [placeholder]="store.time" name="store-time">
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="store-modify-storeTel">门店电话：</label>
+    <input type="email" [(ngModel)]="store.storeTel" class="form-control" id="store-modify-storeTel" [placeholder]="store.storeTel" name="store-storeTel">
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="store-modify-licenseNum">营业执照：</label>
+    <input type="email" [(ngModel)]="store.licenseNum" class="form-control" id="store-modify-licenseNum" [placeholder]="store.licenseNum" name="store-licenseNum">
+  </div>
+  <h3>负责人</h3>
+  <div class="form-group">
+    <label for="store-modify-headPeople.name">姓名：</label>
+    <input type="email" [(ngModel)]="store.headPeople.name" class="form-control" id="store-modify-headPeople.name" [placeholder]="store.headPeople.name" name="store-headPeople.name">
+  </div>
+  <div class="form-group">
+    <label for="store-modify-headPeople.tel">电话：</label>
+    <input type="email" [(ngModel)]="store.headPeople.tel" class="form-control" id="store-modify-headPeople.tel" [placeholder]="store.headPeople.tel" name="store-headPeople.tel">
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="store-modify-headPeople.email">邮箱：</label>
+    <input type="email" [(ngModel)]="store.headPeople.email" class="form-control" id="store-modify-headPeople.email" [placeholder]="store.headPeople.email" name="store-headPeople.email">
+  </div>
+  <div class="form-group">
+    <label for="store-modify-headPeople.location">地址：</label>
+    <input type="email" [(ngModel)]="store.headPeople.location" class="form-control" id="store-modify-headPeople.location" [placeholder]="store.headPeople.location" name="store-headPeople.location">
+  </div>
+  <br>
+  <button type="button" class="btn btn-default" (click)="goBack()">Back</button>
+  <button type="button" class="btn btn-default" (click)="save()">Save</button>
+</form>

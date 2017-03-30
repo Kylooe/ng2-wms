@@ -59,10 +59,11 @@ export class SidebarComponent {
       icon: 'fa-users'
     }, {
       id: 3,
-      name: '财务管理',
-      path: 'xxx',
+      name: '后台管理',
+      path: 'beehive',
       sub: [
-        { name: '财务统计', addr: '' }
+        { name: '门店管理', addr: 'storeQuery' },
+        { name: '新建门店', addr: 'storeCreat' }
       ],
       icon: 'fa-bar-chart'
     }

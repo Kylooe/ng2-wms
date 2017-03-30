@@ -1,0 +1,55 @@
+<form class="form-inline" #queryForm="ngForm" (ngSubmit)="onSubmit(name.value)">
+  <div class="form-group">
+    <label for="id">门店名称</label>
+    <input type="text" class="form-control" id="id" placeholder="" required #name>
+  </div>
+  <button type="submit" class="btn btn-default" [disabled]="!queryForm.form.valid">查询</button>
+</form>
+<div [hidden]="submitted">
+	<table class="table table-hover">
+      <thead>
+        <tr>
+          <th>序号</th>
+          <th>门店名称</th>
+          <th>门店地址</th>
+          <th>更多信息</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of stores;let i=index">
+          <td>{{i+1}}</td>
+          <td>{{item.id}}</td>
+          <td>{{item.storeLocation}}</td>
+          <td>
+            <button (click)="look(item.id,flase)">更多资料</button >
+            <button (click)="look(item.id,true)">修改资料</button >
+            <button (click)="delete(item,flase)">删除</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<div [hidden]="!submitted" *ngIf="store">
+	<table class="table table-striped">
+      <thead>
+        <tr>
+          <th>序号</th>
+          <th>门店名称</th>
+          <th>门店地址</th>
+          <th>更多信息</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of store;let i=index">
+          <td>{{i+1}}</td>
+          <td>{{item.id}}</td>
+          <td>{{item.storeLocation}}</td>
+          <td>
+            <button (click)="look(item.id,flase)">更多资料</button >
+            <button (click)="look(item.id,true)">修改资料</button >
+            <button (click)="delete(item,true)">删除</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
