@@ -1,17 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable }        from 'rxjs/Observable';
-import { Subject }           from 'rxjs/subject';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Observable }                              from 'rxjs/Observable';
+import { Subject }                                 from 'rxjs/subject';
 
-import { SearchService }     from './search.service';
-import { Goods }             from '../type';
+import { SearchService }                           from './search.service';
 
 @Component({
   selector: 'search',
   template: `
   <div class="wrapper">
-    <input type="text" #searchBox (keyup)="search(searchBox.value)" placeholder="快速搜索"/>
+    <input type="text" #box (keyup)="search(box.value)" placeholder="快速搜索"/>
     <ul>
-      <li *ngFor="let item of goods | async">{{item.name}}</li>
+      <li *ngFor="let item of results | async" (click)="goto(item.id); box.value=''; results=null">{{item.name}}</li>
     </ul>
   </div>
   `,
@@ -19,24 +18,19 @@ import { Goods }             from '../type';
     .wrapper {
       display: inline-block;
       position: relative;
+      width: 400px;
     }
 
     input {
-      width: 400px;
+      width: 100%;
       padding: 5px 10px;
       font-size: 16px;
-      border: 1px solid #e3e3e3;
-      box-sizing: border-box;
-    }
-
-    input:focus {
-      border: 1px solid #18a689;
     }
 
     ul {
       visibility: hidden;
       position: absolute;
-      width: 400px;
+      width: 100%;
       margin: 0;
       padding: 0;
       list-style: none;
@@ -67,23 +61,29 @@ import { Goods }             from '../type';
 })
 
 export class SearchComponent implements OnInit {
-  goods:Observable<Goods[]>;
+  results:Observable<Object[]>;
   private items = new Subject<string>();
+  @Input() type:string;
+  @Output() select = new EventEmitter<number>();
 
   constructor(private searchService:SearchService) {}
 
   ngOnInit():void {
-    this.goods = this.items.debounceTime(200)
+    this.results = this.items.debounceTime(200)
                      .distinctUntilChanged()  // 确保只在过滤条件变化时才发送请求
-                     .switchMap(item => item ? this.searchService.search(item) : Observable.of<Goods[]>([]))  // switchMap保留原始的请求顺序，并只返回最近一次http 调用返回的Observable
+                     .switchMap(item => item ? this.searchService.search(this.type, item) : Observable.of<Object[]>([]))  // switchMap保留原始的请求顺序，并只返回最近一次http 调用返回的Observable
                      .catch(error => {
                        console.log(error);
-                       return Observable.of<Goods[]>([])  // 清空搜索结果
+                       return Observable.of<Object[]>([])  // 清空搜索结果
                      });
   }
 
   search(name:string):void {
     this.items.next(name);
+  }
+
+  goto(id:number) {
+    this.select.emit(id);
   }
 
 }

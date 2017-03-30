@@ -4,7 +4,7 @@
   </div>
   <div class="panel-body">
     <div>
-      <search></search>
+      <search (select)="gotoDetail($event)" type="goods"></search>
       <span class="button-group">
         <button (click)="add()">添加</button>
         <button>其他按钮</button>
