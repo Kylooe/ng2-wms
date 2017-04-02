@@ -63,7 +63,7 @@ export class SidebarComponent {
       path: 'beehive',
       sub: [
         { name: '门店管理', addr: 'storeQuery' },
-        { name: '新建门店', addr: 'storeCreat' }
+        { name: '新建门店', addr: 'storeCreate' }
       ],
       icon: 'fa-bar-chart'
     }

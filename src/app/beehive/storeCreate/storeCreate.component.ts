@@ -8,31 +8,36 @@ import 'rxjs/add/operator/switchMap';
 
 @Component({
 	moduleId: module.id,
-	selector	: 'storeModify',
-	templateUrl : './store.modify.html',
+	selector	: 'storeCreate',
+	templateUrl : '../storeQuery/store.modify.html',
 	styles      : [`
 		.form-group{
 			margin-bottom: 20px;
 		}
 	`]
 })
-export class StoreModifyComponent{
-  	store  : Store;
-  	flag: boolean = true;
+export class StoreCreateComponent{
+  	store: Store= {
+        id :    '',
+        storeLocation :  '',
+        code :       '',
+        time :       '',
+        storeTel :        '',
+        licenseNum :       '',
+        headPeople :  {
+          name    :       '',
+          tel      :      '',
+          email    :      '',
+          location :      ''
+        }
+     };
+  	flag: boolean = false;
   	constructor(
 	  private storeService: StoreService,
 	  private route: ActivatedRoute,
 	  private location: Location,
 	  private router : Router
 	) {}
-	ngOnInit(): void {
-		this.route.params
-		    .switchMap((params: Params) => {
-		    	return this.storeService.getStore(params['id']);
-		    }).subscribe(store => {
-		    	return	this.store = store[0];
-		    });
-	}
 	goBack():void{
 		this.location.back();
 	}

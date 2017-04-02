@@ -1,52 +1,53 @@
-<form class="form-inline" *ngIf="store" #modifyForm="ngForm">
+<form class="form-inline" *ngIf="store" #modifyForm="ngForm" (ngSubmit)="save()">
+  <h2>门店资料：</h2>
   <div class="form-group">
     <label for="store-modify-id">门店名称：</label>
-    <input type="text" class="form-control" id="store-modify-id" [placeholder]="store.id" name="store-id" [disabled]="flag">
+    <input type="text" [(ngModel)]="store.id" class="form-control" id="store-modify-id" [placeholder]="store.id" name="store-id" [disabled]="flag" required>
   </div>
   <br>
   <div class="form-group">
     <label for="store-modify-storeLocation">门店位置：</label>
-    <input type="email" [(ngModel)]="store.storeLocation" class="form-control" id="store-modify-storeLocation" [placeholder]="store.storeLocation" name="store-storeLocation">
+    <input type="text" [(ngModel)]="store.storeLocation" class="form-control" id="store-modify-storeLocation" [placeholder]="store.storeLocation" name="store-storeLocation" required>
   </div>
   <br>
   <div class="form-group">
     <label for="store-modify-code">邮政编码：</label>
-    <input type="email" [(ngModel)]="store.code" class="form-control" id="store-modify-code" [placeholder]="store.code" name="store-code">
+    <input type="text" [(ngModel)]="store.code" class="form-control" id="store-modify-code" [placeholder]="store.code" name="store-code" required>
   </div>
   <br>
   <div class="form-group">
     <label for="store-modify-time">开店时间：</label>
-    <input type="email" [(ngModel)]="store.time" class="form-control" id="store-modify-time" [placeholder]="store.time" name="store-time">
+    <input type="text" [(ngModel)]="store.time" class="form-control" id="store-modify-time" [placeholder]="store.time" name="store-time" required>
   </div>
   <br>
   <div class="form-group">
     <label for="store-modify-storeTel">门店电话：</label>
-    <input type="email" [(ngModel)]="store.storeTel" class="form-control" id="store-modify-storeTel" [placeholder]="store.storeTel" name="store-storeTel">
+    <input type="text" [(ngModel)]="store.storeTel" class="form-control" id="store-modify-storeTel" [placeholder]="store.storeTel" name="store-storeTel" required>
   </div>
   <br>
   <div class="form-group">
     <label for="store-modify-licenseNum">营业执照：</label>
-    <input type="email" [(ngModel)]="store.licenseNum" class="form-control" id="store-modify-licenseNum" [placeholder]="store.licenseNum" name="store-licenseNum">
+    <input type="text" [(ngModel)]="store.licenseNum" class="form-control" id="store-modify-licenseNum" [placeholder]="store.licenseNum" name="store-licenseNum" required>
   </div>
   <h3>负责人</h3>
   <div class="form-group">
     <label for="store-modify-headPeople.name">姓名：</label>
-    <input type="email" [(ngModel)]="store.headPeople.name" class="form-control" id="store-modify-headPeople.name" [placeholder]="store.headPeople.name" name="store-headPeople.name">
+    <input type="text" [(ngModel)]="store.headPeople.name" class="form-control" id="store-modify-headPeople.name" [placeholder]="store.headPeople.name" name="store-headPeople.name" required>
   </div>
   <div class="form-group">
     <label for="store-modify-headPeople.tel">电话：</label>
-    <input type="email" [(ngModel)]="store.headPeople.tel" class="form-control" id="store-modify-headPeople.tel" [placeholder]="store.headPeople.tel" name="store-headPeople.tel">
+    <input type="text" [(ngModel)]="store.headPeople.tel" class="form-control" id="store-modify-headPeople.tel" [placeholder]="store.headPeople.tel" name="store-headPeople.tel" required>
   </div>
   <br>
   <div class="form-group">
     <label for="store-modify-headPeople.email">邮箱：</label>
-    <input type="email" [(ngModel)]="store.headPeople.email" class="form-control" id="store-modify-headPeople.email" [placeholder]="store.headPeople.email" name="store-headPeople.email">
+    <input type="email" [(ngModel)]="store.headPeople.email" class="form-control" id="store-modify-headPeople.email" [placeholder]="store.headPeople.email" name="store-headPeople.email" required>
   </div>
   <div class="form-group">
     <label for="store-modify-headPeople.location">地址：</label>
-    <input type="email" [(ngModel)]="store.headPeople.location" class="form-control" id="store-modify-headPeople.location" [placeholder]="store.headPeople.location" name="store-headPeople.location">
+    <input type="text" [(ngModel)]="store.headPeople.location" class="form-control" id="store-modify-headPeople.location" [placeholder]="store.headPeople.location" name="store-headPeople.location" required>
   </div>
   <br>
   <button type="button" class="btn btn-default" (click)="goBack()">Back</button>
-  <button type="button" class="btn btn-default" (click)="save()">Save</button>
+  <button type="submit" class="btn btn-default">Save</button>
 </form>
