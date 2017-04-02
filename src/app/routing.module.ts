@@ -1,12 +1,15 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-//import { AuthGuard }            from './auth/auth-guard.service';
+import { AuthGuard }            from './admin/auth-guard.service';
+
+import { LoginComponent }       from './admin/login.component';
+import { WorkspaceComponent }   from './workspace/workspace.component';
 
 const routes:Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/' /*canActivate: [AuthGuard]*/ },
-  { path: 'stock', loadChildren:'app/stock/stock.module#StockModule' },
-  { path: 'beehive', loadChildren:'app/beehive/beehive.module#BeehiveModule' }
+  { path: '', redirectTo: '/admin', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'admin', canLoad: [AuthGuard], loadChildren:'app/workspace/workspace.module#WorkspaceModule' }
 ];
 
 @NgModule({

@@ -11,7 +11,7 @@ export class AuthService {
   redirectUrl:string;
 
   login(): Observable<boolean> {
-    return Observable.of(true).delay(1000).do(val => this.isLoggedIn = true);
+    return Observable.of(true).delay(1000).do(val => this.isLoggedIn = true);  // 模拟访问了API，并返回一个observable
   }
 
   logout(): void {

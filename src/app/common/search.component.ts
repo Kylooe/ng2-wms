@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Observable }                              from 'rxjs/Observable';
-import { Subject }                                 from 'rxjs/subject';
+import { Observable }                                     from 'rxjs/Observable';
+import { Subject }                                        from 'rxjs/subject';
 
-import { SearchService }                           from './search.service';
+import { SearchService }                                  from './search.service';
 
 @Component({
   selector: 'search',
@@ -10,7 +10,7 @@ import { SearchService }                           from './search.service';
   <div class="wrapper">
     <input type="text" #box (keyup)="search(box.value)" placeholder="快速搜索"/>
     <ul>
-      <li *ngFor="let item of results | async" (click)="goto(item.id); box.value=''; results=null">{{item.name}}</li>
+      <li *ngFor="let item of results | async" (click)="goto(item.id); box.value=''; items.next('')">{{item.name}}</li>
     </ul>
   </div>
   `,

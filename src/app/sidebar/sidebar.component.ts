@@ -9,7 +9,7 @@ import { Component, trigger, state, style, transition, animate } from '@angular/
         <p><i class="fa {{tab.icon}}" aria-hidden="true"></i>{{tab.name}}</p>
         <ul class="sub" [@collapse]="cur === tab.id ? 'active' : 'void'">
           <li *ngFor="let item of tab.sub">
-            <a  routerLink="/{{tab.path}}/{{item.addr}}">{{item.name}}</a>
+            <a routerLink="./{{tab.path}}/{{item.addr}}" routerLinkActive="active">{{item.name}}</a>
           </li>
         </ul>
       </li>
