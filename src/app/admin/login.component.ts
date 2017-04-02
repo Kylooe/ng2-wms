@@ -16,7 +16,7 @@ export class LoginComponent {
   login() {
     this.authService.login().subscribe(() => {
       if(this.authService.isLoggedIn) {
-        let url = this.authService.redirectUrl ? this.authService.redirectUrl : '/home';
+        let url = this.authService.redirectUrl ? this.authService.redirectUrl : '/admin';
         this.router.navigate([url]);
       }
     });
