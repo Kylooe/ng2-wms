@@ -7,9 +7,10 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './mock-data/data.service';
 
 import { AppRoutingModule }     from './routing.module';
+import { LoginRoutingModule }   from './admin/login.module';
 
 import { AppComponent }         from './app.component';
-import { SidebarComponent }     from './sidebar/sidebar.component';
+import { LoginComponent }       from './admin/login.component';
 
 @NgModule({
   imports: [
@@ -17,9 +18,10 @@ import { SidebarComponent }     from './sidebar/sidebar.component';
     FormsModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
-    AppRoutingModule
+    AppRoutingModule,
+    LoginRoutingModule
   ],
-  declarations: [ AppComponent, SidebarComponent ],
+  declarations: [ AppComponent, LoginComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

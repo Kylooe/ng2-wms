@@ -4,20 +4,8 @@ import { Component } from '@angular/core';
   moduleId: module.id,
   selector: 'my-app',
   template: `
-    <nav class="sidebar">
-      <a class="logo" routerLink="/">{{title}}</a>
-      <sidebar></sidebar>
-    </nav>
-    <div class="topbar">
-      <button>Sign out</button>
-    </div>
-    <div class="wrapper">
-      <router-outlet></router-outlet>
-    </div>
-  `,
-  styleUrls: ['app.component.css']
+    <router-outlet></router-outlet>
+  `
 })
-export class AppComponent  {
-  title = 'XX汽修连锁';
-  
+export class AppComponent {
 }
