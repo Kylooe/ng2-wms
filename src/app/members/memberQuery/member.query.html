@@ -1,6 +1,6 @@
-<form class="form-inline" #queryForm="ngForm" (ngSubmit)="onSubmit(name.value)">
+ class="btn-success btn"<form class="form-inline" #queryForm="ngForm" (ngSubmit)="onSubmit(name.value)">
   <div class="form-group">
-    <label for="id">门店名称</label>
+    <label for="id">会员ID</label>
     <input type="text" class="form-control" id="id" placeholder="" required #name>
   </div>
   <button type="submit" class="btn btn-default" [disabled]="!queryForm.form.valid">查询</button>
@@ -10,44 +10,48 @@
       <thead>
         <tr>
           <th>序号</th>
-          <th>门店名称</th>
-          <th>门店地址</th>
+          <th>会员ID</th>
+          <th>会员姓名</th>
+          <th>会员电话</th>
           <th>更多信息</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of stores;let i=index">
+        <tr *ngFor="let item of members;let i=index">
           <td>{{i+1}}</td>
           <td>{{item.id}}</td>
-          <td>{{item.storeLocation}}</td>
+          <td>{{item.employeeName}}</td>
+          <td>{{item.telephone}}</td>
           <td>
             <button (click)="look(item.id,flase)" class="btn-success btn">更多资料</button >
             <button (click)="look(item.id,true)" class="btn-success btn">修改资料</button >
-            <button (click)="delete(item,flase)" class="btn-danger btn">删除</button>
+            <button (click)="delete(item,flase)" class="btn btn-danger">删除</button>
           </td>
         </tr>
       </tbody>
     </table>
 </div>
-<div [hidden]="!submitted" *ngIf="store">
+<div [hidden]="!submitted" *ngIf="member">
 	<table class="table table-striped">
       <thead>
         <tr>
           <th>序号</th>
-          <th>门店名称</th>
-          <th>门店地址</th>
+          <th>会员ID</th>
+          <th>会员姓名</th>
+          <th>会员电话</th>
           <th>更多信息</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of store;let i=index">
+        <tr *ngFor="let item of member;let i=index">
           <td>{{i+1}}</td>
           <td>{{item.id}}</td>
-          <td>{{item.storeLocation}}</td>
+          <td>{{item.employeeName}}</td>
+          <td>{{item.telephone}}</td>
           <td>
             <button (click)="look(item.id,flase)" class="btn-success btn">更多资料</button >
             <button (click)="look(item.id,true)" class="btn-success btn">修改资料</button >
-            <button (click)="delete(item,true)" class="btn-danger btn">删除</button>
+            <button (click)="delete(item,true)" class="btn btn-danger">删除</button>
           </td>
         </tr>
       </tbody>

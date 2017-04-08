@@ -54,7 +54,8 @@ export class SidebarComponent {
       name: '会员管理',
       path: 'members',
       sub: [
-        { name: '会员一览', addr: '' }
+        { name: '会员管理', addr: 'memberQuery' },
+        { name: '新建会员', addr: 'memberCreate' }
       ],
       icon: 'fa-users'
     }, {

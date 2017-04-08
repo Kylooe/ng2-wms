@@ -1,0 +1,33 @@
+<form class="form-inline" *ngIf="member" #modifyForm="ngForm" (ngSubmit)="save()">
+  <h2>修改会员信息</h2>
+  <div class="form-group" *ngIf="flag">
+    <label for="member-modify-id">会员ID：</label>
+    <input type="text" [(ngModel)]="member.id" class="form-control" id="member-modify-id" [placeholder]="member.id" name="member-id" [disabled]="flag" required>
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="member-modify-employeeName">会员姓名：</label>
+    <input type="text" [(ngModel)]="member.employeeName" class="form-control" id="member-modify-employeeName" [placeholder]="member.employeeName" name="member-employeeName" required>
+  </div>
+  <div class="form-group">
+    <label for="member-modify-telephone">会员电话：</label>
+    <input type="text" [(ngModel)]="member.telephone" class="form-control" id="member-modify-telephone" [placeholder]="member.telephone" name="member-telephone" required>
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="member-modify-carPlatNumber">车牌号码：</label>
+    <input type="text" [(ngModel)]="member.carPlatNumber" class="form-control" id="member-modify-carPlatNumber" [placeholder]="member.carPlatNumber" name="member-carPlatNumber" required>
+  </div>
+  <div class="form-group">
+    <label for="member-modify-carModel">所属车型：</label>
+    <input type="text" [(ngModel)]="member.carModel" class="form-control" id="member-modify-carModel" [placeholder]="member.carModel" name="member-carModel" required>
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="member-modify-shopName">所属门店：</label>
+    <input type="text" [(ngModel)]="member.shopName" class="form-control" id="member-modify-shopName" [placeholder]="member.shopName" name="member-shopName" required>
+  </div>
+  <br>
+  <button type="button" class="btn btn-default" (click)="goBack()">Back</button>
+  <button type="submit" class="btn btn-default">Save</button>
+</form>

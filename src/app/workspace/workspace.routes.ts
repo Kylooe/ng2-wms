@@ -17,7 +17,8 @@ export const workspaceRoutes:Routes = [
         children: [
           { path: '', component: DashboardComponent },
           { path: 'stock', loadChildren:'app/stock/stock.module#StockModule' },
-          { path: 'beehive', loadChildren:'app/beehive/beehive.module#BeehiveModule' }
+          { path: 'beehive', loadChildren:'app/beehive/beehive.module#BeehiveModule' },
+          { path: 'members', loadChildren:'app/members/member.module#MemberModule' }
         ]
       }
     ]

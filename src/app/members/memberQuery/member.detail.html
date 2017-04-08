@@ -1,0 +1,10 @@
+<h1>会员详情</h1>
+<div id="member-detail" *ngIf="member">
+	<h3>所属分店：{{member.shopName}}</h3>
+	<p><span>会员ID: {{member.employeeId}}</span><span>姓名: {{member.employeeName}}</span></p>
+	<p><span>车牌号: {{member.carPlatNumber}}</span><span>车型: {{member.carModel}}</span></p>
+	<p><span>电话: {{member.telephone}}</span><span>会员积分: {{member.integral}}</span></p>
+	<p><span>当次行车里程: {{member.mileage}}</span><span>入会时间: {{member.time}}</span></p>
+</div>
+<br>
+<button (click)="goBack()">Back</button>

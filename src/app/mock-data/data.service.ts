@@ -60,6 +60,30 @@ export class InMemoryDataService implements InMemoryDbService {
         }
      }
     ];
-    return {goods,store};
+    let member = [
+      {
+        id : '1',
+        carPlatNumber: "1",
+        employeeName: "欧盟2",
+        carModel: "1",
+        telephone: "1",
+        integral: 1,
+        mileage: 1,
+        time: 1489322159000,
+        shopName: "1"
+      },
+      {
+        id : '2',
+        carPlatNumber: "2",
+        employeeName: "欧盟2",
+        carModel: "2",
+        telephone: "2",
+        integral: 2,
+        mileage: 2,
+        time: 2489322159000,
+        shopName: "1"
+      }
+    ];
+    return {goods,store,member};
   }
 }
