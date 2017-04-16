@@ -45,4 +45,7 @@ export class MemberQueryComponent{
 			}	       	        
 	    });
 	}
+	back():void{
+		this.submitted = !this.submitted;
+	}
 }

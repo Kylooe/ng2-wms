@@ -45,4 +45,7 @@ export class StoreQueryComponent{
 			}	       	        
 	    });
 	}
+	back():void{
+		this.submitted = !this.submitted;
+	}
 }
