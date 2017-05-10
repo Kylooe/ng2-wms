@@ -1,27 +1,32 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-      <h3 class="panel-title">title</h3>
+      <h3 class="panel-title">库存商品列表</h3>
   </div>
   <div class="panel-body">
     <div>
       <search (select)="gotoDetail($event)" type="goods"></search>
       <span class="button-group">
         <button (click)="add()">添加</button>
-        <button>其他按钮</button>
       </span>
     </div>
     <table class="table table-hover">
       <thead>
         <tr>
-          <th>名称</th>
-          <th>数量</th>
-          <th>操作</th>
+          <th class="col-md-2">商品图片</th>
+          <th class="col-md-2">编码</th>
+          <th class="col-md-3">名称</th>
+          <th class="col-md-1">数量</th>
+          <th class="col-md-2">当前售价</th>
+          <th class="col-md-2">操作</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of goods" (click)="gotoDetail(item.id);">
+        <tr *ngFor="let item of goods" (click)="gotoDetail(item.id)">
+          <td><img src="../../../assets/goods.jpg"></td>
+          <td>{{item.code}}</td>
           <td>{{item.name}}</td>
           <td>{{item.quantity}}</td>
+          <td>{{item.price}}</td>
           <td>
             <button (click)="edit(item.id); $event.stopPropagation()">修改</button>
             <button (click)="del(item); $event.stopPropagation()">删除</button>
@@ -31,4 +36,4 @@
     </table>
   </div>
 </div>
-<modal #modal (reload)="reload($event)"></modal>
+<modal #modal (val)="reload($event)" size="large"></modal>

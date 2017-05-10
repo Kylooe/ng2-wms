@@ -1,27 +1,50 @@
 <div *ngIf="item">
   <div [hidden]="editable">
     <div class="col-md-6">
-      <span>名称</span> {{item.name}}
+      <img src="../../../assets/goods.jpg">
     </div>
     <div class="col-md-6">
-      <span>数量</span> {{item.quantity}}
+      <div class="form-group">
+        <label>商品名称</label>
+        <p>{{item.name}}</p>
+      </div>
+      <div class="form-group">
+        <label>商品编码</label>
+        <p>{{item.code}}</p>
+      </div>
+      <div class="form-group">
+        <label>在库数量</label>
+        <p>{{item.quantity}}</p>
+      </div>
+      <div class="form-group">
+        <label>当前售价</label>
+        <p>{{item.price}}</p>
+      </div>
     </div>
     <button class="btn center-block" (click)="editable = true">修改</button>
   </div>
   <div [hidden]="!editable">
     <form (ngSubmit)="onSubmit()" #goodsForm="ngForm">
-      <div class="form-group">
-        <label for="goods-detail-name">名称</label>
-        <input type="text" class="form-control" id="goods-detail-name" [(ngModel)]="item.name" name="name" required>
-        <!--
-        <div [hidden]="name.valid || name.pristine" class="alert">
-          名称不可为空
-        </div>
-        -->
+      <div class="col-md-6">
+        <img src="../../../assets/goods.jpg">
       </div>
-      <div class="form-group">
-        <label for="goods-detail-quantity">数量</label>
-        <input type="text" class="form-control" id="goods-detail-quantity" [(ngModel)]="item.quantity" name="quantity">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="goods-detail-name">商品名称</label>
+          <input type="text" class="form-control" id="goods-detail-name" [(ngModel)]="item.name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="goods-detail-code">商品编码</label>
+          <input type="text" class="form-control" id="goods-detail-code" [(ngModel)]="item.code" name="code">
+        </div>
+        <div class="form-group">
+          <label for="goods-detail-quantity">商品数量</label>
+          <input type="text" class="form-control" id="goods-detail-quantity" [(ngModel)]="item.quantity" name="quantity">
+        </div>
+        <div class="form-group">
+          <label for="goods-detail-price">商品售价</label>
+          <input type="text" class="form-control" id="goods-detail-price" [(ngModel)]="item.price" name="price">
+        </div>
       </div>
       <button type="submit" class="btn center-block" [disabled]="!goodsForm.form.valid">保存</button>
     </form>

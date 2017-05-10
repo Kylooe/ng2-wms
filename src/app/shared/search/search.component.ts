@@ -10,21 +10,26 @@ import { SearchService }                                  from './search.service
   <div class="wrapper">
     <input type="text" #box (keyup)="search(box.value)" placeholder="快速搜索"/>
     <ul>
-      <li *ngFor="let item of results | async" (click)="goto(item.id); box.value=''; items.next('')">{{item.name}}</li>
+      <li *ngFor="let item of results | async" (click)="goto(item.id); box.value=''">{{item.name}}</li>
     </ul>
   </div>
   `,
   styles: [`
     .wrapper {
-      display: inline-block;
       position: relative;
-      width: 400px;
+      width: 100%;
     }
 
     input {
       width: 100%;
       padding: 5px 10px;
       font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    input:focus {
+      border-color: #18a689;
     }
 
     ul {
@@ -84,6 +89,7 @@ export class SearchComponent implements OnInit {
 
   goto(id:number) {
     this.select.emit(id);
+    this.items.next('');
   }
 
 }

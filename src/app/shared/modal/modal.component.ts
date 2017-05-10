@@ -7,10 +7,10 @@ import { Component, OnInit, Input, Output, EventEmitter,
     '[class.show]': 'isOpened'
   },
   template: `
-    <div class="modal-content">
+    <div class="modal-content {{size}}">
       <div class="modal-header">
         <button type="button" class="close" aria-label="Close" (click)="close()"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">题头</h4>
+        <h4 class="modal-title">{{title}}</h4>
       </div>
       <div class="modal-body">
         <template #content>
@@ -34,7 +34,14 @@ import { Component, OnInit, Input, Output, EventEmitter,
 
     .modal-content {
       margin: 100px auto;
+    }
+
+    .large {
       width: 600px;
+    }
+
+    .small {
+      width: 400px;
     }
   `]
 })
@@ -42,13 +49,16 @@ import { Component, OnInit, Input, Output, EventEmitter,
 export class ModalComponent {
   @ViewChild('content', { read: ViewContainerRef }) content:ViewContainerRef;
   isOpened:boolean = false;
-  @Output() reload = new EventEmitter<boolean>();
+  title:string;  // 弹出框标题
+  @Input() size:string;  // 弹出框大小
+  @Output() val = new EventEmitter<any>();  // 通过弹出框传出的值
 
   constructor(private resolver:ComponentFactoryResolver) {}
 
   componentRef:any;
-  open(component:any, options:any):void {
+  open(title:string, component:any, options?:any):void {
     this.isOpened = true;
+    this.title = title;
     let factory = this.resolver.resolveComponentFactory(component);
     this.componentRef = this.content.createComponent(factory);
     this.componentRef.instance.options = options;
@@ -57,6 +67,7 @@ export class ModalComponent {
   close() {
     this.isOpened = false;
     this.content.remove();
-    if(this.componentRef.instance.reload) this.reload.emit(true);
+    let value = this.componentRef.instance.value;
+    if(value) this.val.emit(value);
   }
 }

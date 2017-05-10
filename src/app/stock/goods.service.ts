@@ -3,11 +3,12 @@ import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Goods }         from '../type';
+import { Goods, newRecord, Record } from '../type';
 
 @Injectable()
 export class GoodsService {
   private goodsUrl = 'api/goods';
+  private recordUrl = 'api/records';
   private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http:Http) {}
@@ -27,7 +28,7 @@ export class GoodsService {
                .catch(this.handleError);
   }
 
-  create(item:Object):Promise<Goods> {
+  createGood(item:Object):Promise<Goods> {
     return this.http.post(this.goodsUrl, JSON.stringify(item), {headers:this.headers})
                .toPromise()
                .then(res => res.json().data)
@@ -46,6 +47,31 @@ export class GoodsService {
     return this.http.delete(url, {headers:this.headers})
                .toPromise()
                .then(() => null)
+               .catch(this.handleError);
+  }
+
+  // 创建入库单
+  createRecord(record:newRecord):Promise<Record> {
+    return this.http.post(this.recordUrl, JSON.stringify(record), {headers:this.headers})
+               .toPromise()
+               .then(res => res.json().data)
+               .catch(this.handleError);
+  }
+
+  getRecords():Promise<Record[]> {
+    return this.http.get(this.recordUrl).toPromise().then(res => res.json().data as Record[])
+               .catch(this.handleError);
+  }
+
+  getRecord(id:number):Promise<Record> {
+    const url = `${this.recordUrl}/${id}`;
+    return this.http.get(url).toPromise().then(res => res.json().data as Record)
+               .catch(this.handleError);
+  }
+
+  delRecord(id:number):Promise<void> {
+    const url = `${this.recordUrl}/${id}`;
+    return this.http.delete(url, {headers:this.headers}).toPromise().then(() => null)
                .catch(this.handleError);
   }
 

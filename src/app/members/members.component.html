@@ -1,0 +1,37 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+      <h3 class="panel-title">title</h3>
+  </div>
+  <div class="panel-body">
+    <div>
+      <search (select)="gotoDetail($event)" type="members"></search>
+      <span class="button-group">
+        <button (click)="add()">新增会员</button>
+      </span>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th class="col-md-4">编号</th>
+          <th class="col-md-2">姓名</th>
+          <th class="col-md-2">车牌号码</th>
+          <th class="col-md-2">手机号码</th>
+          <th class="col-md-2">操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let member of members" (click)="gotoDetail(member.id)">
+          <td>{{member.id}}</td>
+          <td>{{member.name}}</td>
+          <td>{{member.plateNum}}</td>
+          <td>{{member.phoneNum}}</td>
+          <td>
+            <button (click)="edit(member.id); $event.stopPropagation()">修改</button>
+            <button (click)="del(member); $event.stopPropagation()">删除</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<modal #modal (val)="reload($event)" size="large"></modal>

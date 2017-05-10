@@ -1,0 +1,49 @@
+<div class="panel panel-default" *ngIf="record">
+  <div class="panel-heading">
+      <h3 class="panel-title">入库记录</h3>
+  </div>
+  <div class="panel-body">
+      <div class="form-group col-md-3">
+        <label>入库时间</label>
+        <p>{{record.time}}</p>
+      </div>
+      <div class="form-group col-md-3">
+        <label>门店</label>
+        <p>{{record.store}}门店</p>
+      </div>
+      <div class="form-group col-md-3">
+        <label>入库人</label>
+        <p>{{record.charge}}</p>
+      </div>
+      <div class="form-group">
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="col-md-1">#</th>
+              <th class="col-md-3">商品编码</th>
+              <th class="col-md-3">商品名称</th>
+              <th class="col-md-1">商品数量</th>
+              <th class="col-md-1">单件进价</th>
+              <th class="col-md-1">合计</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of record.list; let i = index">
+              <td>{{i}}</td>
+              <td>{{item.code}}</td>
+              <td>{{item.name}}</td>
+              <td>{{item.quantity}}</td>
+              <td>{{item.price}}</td>
+              <td>{{item.total}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>合计金额：{{record.total}}</p>
+      </div>
+      <div class="form-group" *ngIf="record.remark">
+        <label>备注</label>
+        <p>{{record.remark}}</p>
+      </div>
+      <button class="btn text-center" (click)="goBack()">返回</button>
+  </div>
+</div>

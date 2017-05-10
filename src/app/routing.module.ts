@@ -9,7 +9,8 @@ import { WorkspaceComponent }   from './workspace/workspace.component';
 const routes:Routes = [
   { path: '', redirectTo: '/admin', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'admin', canLoad: [AuthGuard], loadChildren:'app/workspace/workspace.module#WorkspaceModule' }
+  { path: 'admin', canLoad: [AuthGuard], loadChildren:'app/workspace/workspace.module#WorkspaceModule' },
+  { path: '**', redirectTo: '/admin' }
 ];
 
 @NgModule({

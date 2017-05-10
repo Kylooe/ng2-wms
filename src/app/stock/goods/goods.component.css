@@ -1,10 +1,10 @@
-/*
-$green: #18a689;
-$light-green: #5fc1ad;
-$grey: #e5e6e7;
-*/
 .panel-body div {
-  margin: 10px 20px;
+  margin: 10px 20px 15px;
+}
+
+search {
+  display: inline-block;
+  width: 500px;
 }
 
 .button-group {
@@ -14,6 +14,7 @@ $grey: #e5e6e7;
 .button-group button {
   padding: 5px 10px;
   border-radius: 3px;
+  height: 36px;
 }
 
 /* ------------- table ------------- */
@@ -21,12 +22,16 @@ tbody tr:hover {
   cursor: pointer;
 }
 
-th:first-child, td:first-child {
-  padding: 10px 20px;
+th:first-child, td:first-child, th:last-child, td:last-child {
+  text-align: center;
 }
 
-th:last-child, td:last-child {
-  text-align: center;
+tbody td {
+  vertical-align: middle;
+}
+
+img {
+  height: 60px;
 }
 
 button {

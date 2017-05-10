@@ -6,7 +6,6 @@ ul {
 .main {
     margin: 0;
     padding: 0;
-    color: #b3b3b3;
 }
 
 .main li:hover, .unfold, .unfold:hover {
@@ -25,6 +24,11 @@ p {
     border-bottom: 1px solid #42454D;
 }
 
+.unfold p {
+    background-color: #5a5f69;
+    box-shadow: 1px 0 1px #000;
+}
+
 i {
     padding-right: 10px;
 }
@@ -32,9 +36,6 @@ i {
 p:after {
     font-family: "FontAwesome";
     float: right;
-}
-
-p:after {
     content: "\f104";
 }
 
@@ -44,16 +45,40 @@ p:after {
 
 .sub {
     overflow: hidden;
-    padding-left: 60px;
-    background-color: #454952;
     line-height: 40px;
+    padding: 0;
 }
 
 a {
+    margin: 0 40px;
+    padding-left: 20px;
     color: #b3b3b3;
     text-decoration: none;
+    border-bottom: 1px solid #5a5f69;
 }
 
 a:hover {
     color: #fff;
+}
+
+.user {
+    position: absolute;
+    bottom: 0;
+}
+
+.user p {
+
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.logout {
+    margin: 10px auto;
+    width: 200px;
+    background-color: #5a5f69;
+    border: none;
 }

@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+      <h3 class="panel-title">入库历史记录</h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th class="col-md-1">#</th>
+          <th class="col-md-4">入库时间</th>
+          <th class="col-md-2">负责人</th>
+          <th class="col-md-2">合计金额</th>
+          <th class="col-md-3">操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let record of records; let i = index">
+          <td>{{i+1}}</td>
+          <td>{{record.time}}</td>
+          <td>{{record.charge}}</td>
+          <td>{{record.total}}</td>
+          <td>
+            <button (click)="more(record.id)">详情</button>
+            <button (click)="del(record.id)">删除</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

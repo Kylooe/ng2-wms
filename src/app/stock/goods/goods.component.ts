@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { GoodsService }                 from '../goods.service';
 import { Goods }                        from '../../type';
 
-import { ModalComponent }               from '../../common/modal/modal.component';
+import { ModalComponent }               from '../../shared/modal/modal.component';
 import { DetailComponent }              from './detail.component';
 
 @Component({
@@ -28,15 +28,15 @@ export class GoodsComponent implements OnInit {
   }
 
   add() {
-    this.modal.open(DetailComponent, { type: 'add' });
+    this.modal.open('新增商品', DetailComponent, { type: 'add' });
   }
 
   edit(id:number) {
-    this.modal.open(DetailComponent, { type: 'edit', id });
+    this.modal.open('修改商品信息', DetailComponent, { type: 'edit', id });
   }
 
   gotoDetail(id:number) {
-    this.modal.open(DetailComponent, { type: 'detail', id });
+    this.modal.open('商品详情', DetailComponent, { type: 'detail', id });
   }
 
   del(item:Goods):void {

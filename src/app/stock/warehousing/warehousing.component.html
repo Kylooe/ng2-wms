@@ -1,0 +1,63 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+      <h3 class="panel-title">入库</h3>
+  </div>
+  <div class="panel-body">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+      <div class="form-group col-md-3">
+        <label>入库时间</label>
+        <input type="text" class="form-control" placeholder="yyyy-mm-dd" formControlName="time">
+      </div>
+      <div class="form-group col-md-3">
+         <label>门店</label>
+         <select class="form-control" formControlName="store">
+           <option *ngFor="let sto of stores" [value]="sto.storeLocation">{{sto.storeLocation}}门店</option>
+         </select>
+      </div>
+      <div class="form-group col-md-3">
+        <label>入库人</label>
+        <input type="text" class="form-control" formControlName="charge">
+      </div>
+      <div class="form-group col-md-3">
+        <label>单据编号</label>
+        <input type="text" class="form-control" formControlName="code">
+      </div>
+      <div class="form-group" formArrayName="list">
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="col-md-1">#</th>
+              <th class="col-md-3">商品编码</th>
+              <th class="col-md-3">商品名称</th>
+              <th class="col-md-1">商品数量</th>
+              <th class="col-md-1">单件进价</th>
+              <th class="col-md-1">合计</th>
+              <th class="col-md-1">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of list.controls; let i=index" [formGroupName]="i">
+              <td>{{i + 1}}</td>
+              <td>{{item.value.code}}</td>
+              <td>{{item.value.name}}</td>
+              <td><input type="text" class="form-control" formControlName="quantity"></td>
+              <td><input type="text" class="form-control" formControlName="price" #price></td>
+              <td>{{item.value.total}}</td>
+              <td>
+                <button type="button" class="btn" (click)="del(i)">删除</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="button" class="btn btn-block" (click)="add()">添加</button>
+        <p>合计金额：{{form.value.total}}</p>
+      </div>
+      <div class="form-group">
+        <label>备注</label>
+        <textarea class="form-control" rows="2" formControlName="remark"></textarea>
+      </div>
+      <button type="submit" class="btn center-block" [disabled]="form.invalid">提交</button>
+    </form>
+  </div>
+</div>
+<modal #modal (val)="selected($event)" size="small"></modal>

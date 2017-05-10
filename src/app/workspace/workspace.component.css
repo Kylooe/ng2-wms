@@ -5,6 +5,7 @@
   width: 250px;
   height: 100%;
   background-color: #383B42;
+  color: #b3b3b3;
   z-index: 100;
 }
 
@@ -32,7 +33,6 @@
   transform: rotate(45deg);
 }
 
-
 /* top bar */
 .topbar {
   position: fixed;
@@ -43,6 +43,7 @@
   background-color: #fff;
   border-bottom: 1px solid #C0C1C0;
   z-index: 99;
+  text-align: right;
 }
 
 .topbar button {
@@ -50,6 +51,22 @@
   top: 50%;
   right: 20px;
   transform: translateY(-50%);
+}
+
+.topbar img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.topbar span {
+  line-height: 60px;
+}
+
+.topbar a {
+  display: inline-block;
+  margin-right: 20px;
+  cursor: pointer;
 }
 
 .wrapper {

@@ -37,8 +37,9 @@ export class SidebarComponent {
       name: '库存管理',
       path: 'stock',
       sub: [
-        { name: '库存一览', addr: 'goods' },
-        { name: '入库', addr: 'warehouse' }
+        { name: '库存商品管理', addr: 'goods' },
+        { name: '入库登记', addr: 'warehouse' },
+        { name: '入库记录一览', addr: 'records' }
       ],
       icon: 'fa-cogs'
     }, {
@@ -54,7 +55,7 @@ export class SidebarComponent {
       name: '会员管理',
       path: 'members',
       sub: [
-        { name: '会员一览', addr: '' }
+        { name: '会员列表', addr: 'list' }
       ],
       icon: 'fa-users'
     }, {
