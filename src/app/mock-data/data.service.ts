@@ -21,7 +21,7 @@ export class InMemoryDataService implements InMemoryDbService {
     let store = [
      {
         id :    '11',
-        storeLocation :  '深圳市',
+        storeLocation :  '深圳市南山区',
         code :       '518000',
         time :       '2016年7月',
         storeTel :        '13444322121',
@@ -34,7 +34,7 @@ export class InMemoryDataService implements InMemoryDbService {
         }
      },{
         id :    '12',
-        storeLocation :  '广州市',
+        storeLocation :  '广州市天河区',
         code :       '518000',
         time :       '2016年7月',
         storeTel :        '13444322121',
@@ -47,7 +47,7 @@ export class InMemoryDataService implements InMemoryDbService {
         }
      },{
         id :    '13',
-        storeLocation :  '深圳市1',
+        storeLocation :  '深圳市宝安区',
         code :       '518000',
         time :       '2016年7月',
         storeTel :        '13444322121',
