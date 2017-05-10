@@ -3,6 +3,9 @@ import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
+
 import { Store } from './store';
 
 
@@ -16,7 +19,7 @@ export class StoreService {
     return this.http.get(this.storesUrl)
                .toPromise()
                .then(response => {
-	    			return response.json().data as Store
+	    			return response.json().data as Store[]
                })
                .catch(this.handleError);
   }
@@ -30,7 +33,7 @@ export class StoreService {
 	  return this.http.get(url)
 	    .toPromise()
 	    .then(response => {
-	    	return response.json().data as Store
+	    	return response.json().data as Store[]
 	    })
 	    .catch(this.handleError);
 	}
@@ -54,6 +57,17 @@ export class StoreService {
 	    .then(() => store)
 	    .catch(this.handleError);
 	}
+
+	//尝试
+	/*tryw(): Promise<any>{
+		const url = 'http://172.29.23.53:8080/sh/user/getImage';
+		return this.http.get(url)
+	    .toPromise()
+	    .then(response => {
+	    	return response.json().data as any
+	    })
+	    .catch(this.handleError);
+	}*/
 
 
 }

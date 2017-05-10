@@ -11,5 +11,5 @@ export class Store{
     time 			:       string;
     storeTel 		:       string;
     licenseNum 		:       string;
-    headPeople 		:  		peopleInfo[];
+    headPeople 		:  		peopleInfo;
 }

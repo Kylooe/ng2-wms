@@ -30,9 +30,9 @@ export class StoreQueryComponent{
 	}
 	look(id:string,flag:boolean):void{
 		if(!flag){
-			this.router.navigate(['/beehive/storeDetail',id]);
+			this.router.navigate(['/admin/beehive/storeDetail',id]);
 		}else{
-			this.router.navigate(['/beehive/storeModify',id]);
+			this.router.navigate(['/admin/beehive/storeModify',id]);
 		}
 	}
 	delete(item:Store,flag:boolean):void{

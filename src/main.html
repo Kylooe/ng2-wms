@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Angular QuickStart</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="./zepto.min.js"></script>
+  </head>
+  <style>
+	  body{
+		margin: 0px;
+		padding: 0px;
+		font-family: "Microsoft YaHei";
+	  }
+	  #container{
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		background-image:-webkit-linear-gradient(to top,#00ffe7, #004f80);
+		background-image:linear-gradient(to top,#00ffe7, #004f80);
+	  }
+	  #title>h1{
+		text-align: center;
+		color: #fff;
+		margin: 30px 0px;
+	  }
+	  #register{
+		position: relative;
+	  }
+	  #form{
+		width: 250px;
+		margin: 80px auto;
+		background-color: #07a1e6;
+		padding: 20px 10px; 
+	  }
+	  #form>div{
+		color: #fff;
+		font-size: 16px;
+		margin-bottom:10px;
+	  }
+	  #form>div:last-child{
+		margin: 20px 0px 0px 0px;
+	  }
+	  #form>div label{
+		display: inline-block;
+		width: 30%;
+		text-align: right;
+	  }
+	  #form>div input{
+		display: inline-block;
+		width: 60%;
+		height: 20px;
+		padding-left: 5px;
+	  }
+	  #form>div img{
+		vertical-align: middle;
+	  }
+	  #form>div button{
+		display: inline-block;
+		width: 100%;
+		height: 40px;
+		color: #fff;
+		font-size: 20px;
+		background-color: #a9d4e0;
+	  }
+	  #message{
+		color: red;
+		font-size: 12px;
+	  }
+  </style>
+  <body>
+	<div id="container">
+		<div id="title">
+			<h1>汽车维修店后台系统</h1>
+		</div>
+		<div id="register">
+		  <div id="form">
+			<div>
+				<label>账号：</label>
+				<input type="text" placeholder="用户名" id="name">
+			</div>
+			<div>
+				<label>密码：</label>
+				<input type="password" placeholder="密码" id="password">
+			</div>
+			<div>
+				<label>验证码：</label>
+				<input type="text" placeholder="验证码" id="confirm">
+			</div>
+			<div>
+				<label>验证码：</label>
+				<img src="" alt="">
+			</div>
+			<div>
+				<button typr="button" id="sumbit">登陆</button>
+			</div>
+			<p id="message"></p>
+		  </div>
+		</div>
+	</div>
+  </body>
+  <script>
+	$(document).ready(function(){
+		var Config = {
+			host  :   "172.29.23.53",
+			port  :   "8080"
+		}
+		var url = 'http://'+Config.host+':'+Config.port;
+		$('#form img').attr('src', url+'/sh/user/getImage');
+		$('#sumbit').on('click',function(){
+			var name = $('#name').val();
+			var password = $('#password').val();
+			var confirm = $('#confirm').val();
+			if(name&&password&&confirm){
+				$.ajax({
+					url    : url+'/sh/user/login',
+					type   : 'POST',
+					data   : {
+						username   :  name,
+						password   :  password,
+						imageValue :  confirm
+					},
+					success: function(data){
+						if(JSON.parse(data).success === 1){
+							Cookie('name',name,{expires:3});
+							location.href = location.origin+'main.html';
+						}else{
+							$('#message').text(JSON.parse(data).message);
+						}
+					},
+					error  : function(){
+
+					}
+				})
+			}else{
+				$('#message').text('请填写信息！')
+			}
+		});
+		function Cookie(name, value, options) {
+			if (typeof value != 'undefined') {
+				options = options || {};
+				//如果值为null, 删除cookie
+				if (value === null) {
+					value = '';
+					options = {
+						expires: -1
+					};
+				}
+				//设置有效期
+				var expires = '';
+				if (options.expires && (typeof options.expires == 'number' || options.expires.toUTCString)) {
+					var date;
+					if (typeof options.expires == 'number') {
+						date = new Date();
+						date.setTime(date.getTime() + (options.expires * 24 * 60 * 60 * 1000));
+					} else {
+						date = options.expires;
+					}
+					expires = ';expires=' + date.toUTCString();
+				}
+				var path = options.path ? ';path=' + (options.path) : '';
+				var domain = options.domain ? ';domain=' + (options.domain) : '';
+				var secure = options.secure ? ';secure' : '';
+				//设置cookie  join 将数组的元素变为字符串
+				document.cookie = [name, '=', encodeURIComponent(value), expires, path, domain, secure].join('');
+			} else {
+				//读取cookie
+				if (document.cookie.length > 0) {
+					var start = document.cookie.indexOf(name + "=");
+					if (start != -1) {
+						start = start + name.length + 1;
+						var end = document.cookie.indexOf(";", start);
+						if (end == -1) {
+							end = document.cookie.length;
+						}
+						return decodeURIComponent(document.cookie.substring(start, end));
+					}
+				}
+				return ""
+			}
+		}
+		
+	})
+  </script>
+</html>
